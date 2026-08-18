@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahwar Masala - Ishaq Traders</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #1e293b;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 5px;
+        }
+
+        .bill-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 720px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1.5px solid #ffd700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Animated Compact Header */
+        .header {
+            background: linear-gradient(45deg, #b71c1c, #d32f2f);
+            padding: 6px;
+            text-align: center;
+            color: white;
+        }
+
+        .logo-title {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #fff;
+            text-shadow: 0 0 5px #ffd700;
+            animation: pulseGlow 1.5s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.02); text-shadow: 0 0 8px #ffd700, 0 0 12px #ff6f00; }
+        }
+
+        /* Salesman & Info Bar (Top Fields) */
+        .info-bar {
+            background: #fff8e1;
+            padding: 6px 10px;
+            border-bottom: 1px solid #ffe082;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: space-between;
+            font-size: 11px;
+        }
+
+        .info-field {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .info-field label {
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .editable-input {
+            border: 1px dashed #ffa000;
+            padding: 2px 5px;
+            border-radius: 4px;
+            background: #fff;
+            outline: none;
+            font-weight: bold;
+            color: #222;
+            min-width: 80px;
+        }
+
+        /* Compact Table */
+        .table-container {
+            padding: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+
+        th {
+            background: #c62828;
+            color: white;
+            padding: 3px 2px;
+            font-size: 11px;
+            text-align: center;
+            border: 1px solid #b71c1c;
+        }
+
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 1px 4px;
+            font-size: 10px;
+            outline: none;
+            height: 18px;
+        }
+
+        .row-num {
+            background: #f1f5f9;
+            font-weight: bold;
+            text-align: center;
+            width: 22px;
+            color: #475569;
+        }
+
+        .dukandar-cell {
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .bill-cell {
+            color: #15803d;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .wasool-cell {
+            color: #0e7490;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .bakaya-cell {
+            color: #b91c1c;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) td:not(.row-num) {
+            background-color: #f8fafc;
+        }
+
+        /* Micro Footer */
+        .footer {
+            background: #0f172a;
+            color: #fff;
+            text-align: center;
+            padding: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            border-top: 1px solid #ffd700;
+        }
+
+        .footer span {
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bill-card">
+        <!-- Compact Header -->
+        <div class="header">
+            <div class="logo-title">✨ SHAHWAR MASALA ✨</div>
+        </div>
+
+        <!-- Info Bar (Trader, Salesman, Area, Date) -->
+        <div class="info-bar">
+            <div class="info-field">
+                <label>Trader:</label>
+                <div class="editable-input" contenteditable="true">Ishaq Traders</div>
+            </div>
+            <div class="info-field">
+                <label>Salesman:</label>
+                <div class="editable-input" contenteditable="true">Sajid</div>
+            </div>
+            <div class="info-field">
+                <label>Elaka:</label>
+                <div class="editable-input" contenteditable="true">Swabi</div>
+            </div>
+            <div class="info-field">
+                <label>Date:</label>
+                <div class="editable-input" contenteditable="true">18/08/2026</div>
+            </div>
+        </div>
+
+        <!-- 20 Compact Rows Table -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Dukandar</th>
+                        <th>Today Bill</th>
+                        <th>Wasool</th>
+                        <th>Bakaya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="row-num">1</td><td class="dukandar-cell" contenteditable="true">Dukan 1</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">2</td><td class="dukandar-cell" contenteditable="true">Dukan 2</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">3</td><td class="dukandar-cell" contenteditable="true">Dukan 3</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">4</td><td class="dukandar-cell" contenteditable="true">Dukan 4</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">5</td><td class="dukandar-cell" contenteditable="true">Dukan 5</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">6</td><td class="dukandar-cell" contenteditable="true">Dukan 6</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">7</td><td class="dukandar-cell" contenteditable="true">Dukan 7</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">8</td><td class="dukandar-cell" contenteditable="true">Dukan 8</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">9</td><td class="dukandar-cell" contenteditable="true">Dukan 9</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">10</td><td class="dukandar-cell" contenteditable="true">Dukan 10</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">11</td><td class="dukandar-cell" contenteditable="true">Dukan 11</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">12</td><td class="dukandar-cell" contenteditable="true">Dukan 12</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">13</td><td class="dukandar-cell" contenteditable="true">Dukan 13</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">14</td><td class="dukandar-cell" contenteditable="true">Dukan 14</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">15</td><td class="dukandar-cell" contenteditable="true">Dukan 15</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">16</td><td class="dukandar-cell" contenteditable="true">Dukan 16</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">17</td><td class="dukandar-cell" contenteditable="true">Dukan 17</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">18</td><td class="dukandar-cell" contenteditable="true">Dukan 18</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">19</td><td class="dukandar-cell" contenteditable="true">Dukan 19</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">20</td><td class="dukandar-cell" contenteditable="true">Dukan 20</td><td class="bill-cell" contenteditable="true">0</td><td class="wasool-cell" contenteditable="true">0</td><td class="bakaya-cell" contenteditable="true">0</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Powered by <span>Sabir</span>
+        </div>
+    </div>
+
+</body>
+</html>
