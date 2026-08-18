@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahwar Masala - Today Supply Report</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 5px;
+        }
+
+        .report-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 650px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1.5px solid #ffd700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Animated Header */
+        .header {
+            background: linear-gradient(45deg, #b71c1c, #d32f2f);
+            padding: 8px 6px;
+            text-align: center;
+            color: white;
+        }
+
+        .logo-title {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #fff;
+            text-shadow: 0 0 5px #ffd700;
+            animation: pulseGlow 1.5s infinite alternate;
+        }
+
+        .sub-title {
+            font-size: 11px;
+            color: #ffecb3;
+            margin-top: 2px;
+            font-weight: bold;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.02); text-shadow: 0 0 8px #ffd700, 0 0 12px #ff6f00; }
+        }
+
+        /* Info Bar (Date & Area) */
+        .info-bar {
+            background: #fff8e1;
+            padding: 6px 12px;
+            border-bottom: 1px solid #ffe082;
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+        }
+
+        .info-field {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .info-field label {
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .editable-input {
+            border: 1px dashed #ffa000;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #fff;
+            outline: none;
+            font-weight: bold;
+            color: #222;
+            min-width: 90px;
+        }
+
+        /* Summary Cards (Total Amount & Kharcha) */
+        .summary-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            padding: 8px;
+            background: #f8fafc;
+        }
+
+        .summary-box {
+            background: #fff;
+            padding: 6px 8px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .summary-box.amount { border-left: 4px solid #16a34a; }
+        .summary-box.kharcha { border-left: 4px solid #dc2626; }
+
+        .summary-box label {
+            display: block;
+            font-size: 10px;
+            font-weight: bold;
+            color: #64748b;
+            margin-bottom: 2px;
+        }
+
+        .summary-value {
+            font-size: 12px;
+            font-weight: bold;
+            color: #0f172a;
+            outline: none;
+            border: 1px dashed #cbd5e1;
+            padding: 2px 4px;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+
+        /* Kharcha Detail Section */
+        .expense-section {
+            padding: 6px 8px 8px 8px;
+        }
+
+        .section-title {
+            font-size: 11px;
+            font-weight: bold;
+            color: #b71c1c;
+            margin-bottom: 4px;
+            padding-left: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+
+        th {
+            background: #334155;
+            color: white;
+            padding: 4px;
+            font-size: 11px;
+            text-align: center;
+            border: 1px solid #1e293b;
+        }
+
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 2px 5px;
+            font-size: 10px;
+            outline: none;
+            height: 20px;
+        }
+
+        .row-num {
+            background: #f1f5f9;
+            font-weight: bold;
+            text-align: center;
+            width: 25px;
+            color: #475569;
+        }
+
+        .detail-cell {
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .amount-cell {
+            color: #dc2626;
+            text-align: right;
+            font-weight: bold;
+            width: 100px;
+        }
+
+        tr:nth-child(even) td:not(.row-num) {
+            background-color: #f8fafc;
+        }
+
+        /* Micro Footer */
+        .footer {
+            background: #0f172a;
+            color: #fff;
+            text-align: center;
+            padding: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            border-top: 1px solid #ffd700;
+        }
+
+        .footer span {
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="report-card">
+        <!-- Animated Header -->
+        <div class="header">
+            <div class="logo-title">✨ SHAHWAR MASALA ✨</div>
+            <div class="sub-title">ISHAQ TRADERS - TODAY SUPPLY REPORT</div>
+        </div>
+
+        <!-- Info Bar (Date & Area) -->
+        <div class="info-bar">
+            <div class="info-field">
+                <label>Date:</label>
+                <div class="editable-input" contenteditable="true">18/08/2026</div>
+            </div>
+            <div class="info-field">
+                <label>Elaka (Area):</label>
+                <div class="editable-input" contenteditable="true">Swabi</div>
+            </div>
+        </div>
+
+        <!-- Total Amount & Total Kharcha Summary -->
+        <div class="summary-container">
+            <div class="summary-box amount">
+                <label>TOTAL AMOUNT (Rs)</label>
+                <div class="summary-value" contenteditable="true">0</div>
+            </div>
+            <div class="summary-box kharcha">
+                <label>TOTAL KHARCHA (Rs)</label>
+                <div class="summary-value" contenteditable="true">0</div>
+            </div>
+        </div>
+
+        <!-- Kharcha Detail List -->
+        <div class="expense-section">
+            <div class="section-title">📋 Kharcha Details (Kis Kis Chez Par Paise Lage):</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Kharcha Detail / Tafseel</th>
+                        <th>Amount (Rs)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="row-num">1</td><td class="detail-cell" contenteditable="true">Fuel / Petrol</td><td class="amount-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">2</td><td class="detail-cell" contenteditable="true">Chai / Refreshment</td><td class="amount-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">3</td><td class="detail-cell" contenteditable="true">Vehicle Repair</td><td class="amount-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">4</td><td class="detail-cell" contenteditable="true">Other Expense 1</td><td class="amount-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">5</td><td class="detail-cell" contenteditable="true">Other Expense 2</td><td class="amount-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">6</td><td class="detail-cell" contenteditable="true">Tap to edit</td><td class="amount-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">7</td><td class="detail-cell" contenteditable="true">Tap to edit</td><td class="amount-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">8</td><td class="detail-cell" contenteditable="true">Tap to edit</td><td class="amount-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">9</td><td class="detail-cell" contenteditable="true">Tap to edit</td><td class="amount-cell" contenteditable="true">0</td></tr>
+                    <tr><td class="row-num">10</td><td class="detail-cell" contenteditable="true">Tap to edit</td><td class="amount-cell" contenteditable="true">0</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Powered by <span>Sabir</span>
+        </div>
+    </div>
+
+</body>
+</html>
